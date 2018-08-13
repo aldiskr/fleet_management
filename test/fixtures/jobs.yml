@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver_id: 1
+  car_id: 1
+  busy_from: 2018-08-13 19:34:07
+  busy_to: 2018-08-13 19:34:07
+
+two:
+  driver_id: 1
+  car_id: 1
+  busy_from: 2018-08-13 19:34:07
+  busy_to: 2018-08-13 19:34:07
