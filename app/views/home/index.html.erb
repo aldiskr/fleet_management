@@ -1,0 +1,36 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<h1>Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vadītājs</th>
+      <th>Auto</th>
+      <th>Lieto no</th>
+      <th>Lieto līdz</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.driver.name %></td>
+        <td><%= job.car.name %></td>
+        <td><%= job.busy_from.strftime('%Y.%m.%d %H:%m') %></td>
+        <td><%= job.busy_to.strftime('%Y.%m.%d %H:%m') %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p><%= link_to 'New job', new_job_path %></p>
+<p><%= link_to 'Cars', cars_path %></p>
+<p><%= link_to 'Drivers', drivers_path %></p>

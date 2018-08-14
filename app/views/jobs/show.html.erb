@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @job.driver.name %>
+</p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @job.car.name %>
+</p>
+
+<p>
+  <strong>Busy from:</strong>
+  <%= @job.busy_from %>
+</p>
+
+<p>
+  <strong>Busy to:</strong>
+  <%= @job.busy_to %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
