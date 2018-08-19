@@ -1,8 +1,7 @@
 <%= form_with(model: job, local: true) do |form| %>
   <% if job.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
-
       <ul>
       <% job.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,32 +10,27 @@
     </div>
   <% end %>
 
-  <!-- <div class="field">
+  <div class="form-group">
     <%= form.label :driver_id %>
-    <%= form.number_field :driver_id %>
-  </div> -->
-
-  <div class="field">
-    <%= form.label :driver_id %>
-    <%= form.collection_select :driver_id, Driver.all, :id, :name %>
+    <%= form.collection_select :driver_id, Driver.all, :id, :name,{}, {:class => 'form-control'} %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :car_id %>
-    <%= form.collection_select :car_id, Car.all, :id, :name %>
+    <%= form.collection_select :car_id, Car.all, :id, :name,{}, {:class => 'form-control'} %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :busy_from %>
-    <%= form.datetime_select :busy_from %>
+    <%= form.datetime_select :busy_from,{}, {:class => 'datepicker'} %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :busy_to %>
-    <%= form.datetime_select :busy_to %>
+    <%= form.datetime_select :busy_to,{}, {:class => 'datepicker'} %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit :class=>'btn btn-primary' %>
   </div>
 <% end %>

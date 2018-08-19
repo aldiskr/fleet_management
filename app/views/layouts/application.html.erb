@@ -8,13 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div>
-      <p><%= link_to 'Home', root_url %></p>
-      <p><%= link_to 'Cars', cars_path %></p>
-      <p><%= link_to 'Drivers', drivers_path %></p>
-    </div>
+    <div class="container">
+      <nav class="nav">
+        <li class="nav-item"><%= link_to 'Jobs', root_url, :class=> 'nav-link'%></li>
+        <li class="nav-item"><%= link_to 'Cars', cars_path, :class=> 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Drivers', drivers_path, :class=> 'nav-link' %></li>
+      </nav>
     <%= yield %>
+    </div>
   </body>
 </html>
