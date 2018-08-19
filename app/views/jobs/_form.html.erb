@@ -1,14 +1,5 @@
 <%= form_with(model: job, local: true) do |form| %>
-  <% if job.errors.any? %>
-    <div class="alert alert-danger">
-      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
-      <ul>
-      <% job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'shared/errors', object: job %>
 
   <div class="form-group">
     <%= form.label :driver_id %>

@@ -1,15 +1,5 @@
 <%= form_with(model: driver, local: true) do |form| %>
-  <% if driver.errors.any? %>
-    <div class="alert alert-danger">
-      <h2><%= pluralize(driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
-
-      <ul>
-      <% driver.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'shared/errors', object: driver %>
 
   <div class="form-group">
     <%= form.label :name %>

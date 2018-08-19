@@ -2,7 +2,8 @@ class Job < ApplicationRecord
   belongs_to :driver
   belongs_to :car
   validate :busy_from_greater_than_busy_to
-  validate :job_date_time_overlaps
+  validate :car_taken
+  validate :driver_taken
   validates :busy_to, :busy_from, :driver, :car, presence: true
 
   def busy_from_greater_than_busy_to
@@ -11,9 +12,15 @@ class Job < ApplicationRecord
     end
   end
 
-  def job_date_time_overlaps
+  def car_taken
     if car.jobs.where('busy_from <= ? AND busy_to >= ?', busy_to, busy_from).count > 0
       errors.add(:car, " is taken during selected period")
+    end
+  end
+
+  def driver_taken
+    if driver.jobs.where('busy_from <= ? AND busy_to >= ?', busy_to, busy_from).count > 0
+      errors.add(:driver, " is busy during selected period")
     end
   end
 end

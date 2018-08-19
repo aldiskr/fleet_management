@@ -1,4 +1,4 @@
 class Car < ApplicationRecord
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
   validates :name, presence: true, uniqueness: true
 end

@@ -1,14 +1,5 @@
 <%= form_with(model: car, local: true) do |form| %>
-<% if car.errors.any? %>
-<div class="alert alert-danger">
-  <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
-  <ul>
-    <% car.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<%= render 'shared/errors', object: car %>
 
 <div class="form-group">
   <%= form.label :name %>

@@ -27,7 +27,6 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-    @jobs = Job.all
     respond_to do |format|
       if @job.save
         format.html { redirect_to root_path, notice: 'Job was successfully created.' }
